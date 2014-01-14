@@ -30,13 +30,14 @@
 
 次に、下記のコードを追加します。
 
-
+```
 public var sound : AudioClip;
 
 
 function OnCollisionEnter(collision: Collision) {
      AudioSource.PlayClipAtPoint(sound, );
 }
+```
 
 
 少し解説しましょう。まず1行目のAudioClipとは何かというと、音を登録する変数です。
@@ -50,7 +51,8 @@ AudioClipに音を登録し、4行目のAudioSource.PlayClipAtPointにて音を�
 
 
 
-
+![image](image1.png)
+![image](image2.png)
 
 
 
@@ -72,6 +74,7 @@ AudioClipに音を登録し、4行目のAudioSource.PlayClipAtPointにて音を�
 最後にBGMを追加しましょう。
 ヒエラルキーのMain Cameraを選択し、プロジェクトビューのサウンド「BGM」をインスペクターにドラッグ&ドロップします。
 
+![image](image3.png)
 
 
 
@@ -87,6 +90,7 @@ AudioClipに音を登録し、4行目のAudioSource.PlayClipAtPointにて音を�
 
 次にアニメーションを行うオブジェクトを選択します。今回の場合は、ヒエラルキービューの中ので一番上に表示されているブロックを選択します。
 
+![image](image4.png)
 
 
 
@@ -101,17 +105,21 @@ AudioClipに音を登録し、4行目のAudioSource.PlayClipAtPointにて音を�
 
 その後、Scale.xの辺りを右クリックでメニューを開き、Add Curvesを選択します。
 
+![image](image5.png)
+
 
 次にアニメーションビュー上部の目盛りを選択し、赤い縦線の位置を0.3（0.5秒）に移動します。
 そして、Scale.xとScale.y、Scale.zの値を0に変更します。
 
 
+![image](image6.png)
 
 
 
 最終的には下のような図になるはずです。
 では、赤丸の隣の再生ボタンを押して、アニメーションを再生してみましょう。
 
+![image](image7.png)
 
 
 
@@ -122,6 +130,7 @@ AudioClipに音を登録し、4行目のAudioSource.PlayClipAtPointにて音を�
 
 AnimationのPlay Automaticalyのチェックを外して下さい。
 
+![image](image8.png)
 
 
 ###アニメーション処理の追加と消滅タイミングの調整
@@ -130,11 +139,13 @@ AnimationのPlay Automaticalyのチェックを外して下さい。
 
 BlockControllerスクリプトを開き、OnCollisionEnterメソッドを下記のように修正します。
 
+```
 function OnCollisionEnter(collision: Collision) {
      Destroy(gameObject,0.5);
      collider.enabled = false;
      animation.Play("block erase@Block");
 }
+```
 
 
 解説しましょう。
@@ -151,6 +162,7 @@ function OnCollisionEnter(collision: Collision) {
 
 
 
+![image](image9.png)
 
 
 
@@ -169,6 +181,7 @@ function OnCollisionEnter(collision: Collision) {
 まずProjectビューを右クリックで開き[Create][Material]を選択します。
 マテリアルの名前は「BlockMaterial 1」としておきましょう。
 
+![image](image10.png)
 
 
 
@@ -176,23 +189,23 @@ function OnCollisionEnter(collision: Collision) {
 
 次に、上のほうの消せるブロックを選択し、先ほど作成した「BlockMaterial 1」をインスペクタにドラッグ＆ドロップで登録します。
 
+![image](image11.png)
 
 
 その後プロジェクトビューの「BlockMaterial 1」マテリアルを選択し、Main Colorを赤く変更します。
 
-　　　
+![image](image12.png)
+![image](image13.png)
 
 
 赤く変更するにはMain Colorの右側の白い部分を選択し、表示されたカラーパレットの赤い部分を選択します。
 
-
-
-
+![image](image14.png)
 
 画面上部のブロックが赤くなりましたか？
 
 
-
+![image](image15.png)
 
 
 では同様の手順でブロックに色を付けて行きましょう。
@@ -200,7 +213,7 @@ function OnCollisionEnter(collision: Collision) {
 「BlockMaterial 2」〜「BlockMaterial 6」を作成し、それぞれの段のブロックに登録。
 後はマテリアルの色を階段上になるように調整していきます。
 
-
+![image](image16.png)
 
 
 次回はいよいよAndroidに書き出します。
