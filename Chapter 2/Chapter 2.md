@@ -1,6 +1,5 @@
 
 
-
 #第二回ルールを追加
 
 
@@ -121,31 +120,6 @@ function OnCollisionEnter(collision: Collision) {
 
 
 ![image](image9.png)
-
-
-
-
-
-##ボールの移動速度制限
-
-
-最後はボールの当たりどころによって高速で移動してしまう問題を制限します。
-
-まずはボールをコントロールするBallController.jsを編集しましょう。
-以下のコードをソースコードの最後に加えてください。
-
-```
-function FixedUpdate () {
-     rigidbody.angularVelocity = Vector3.Normalize( rigidbody.angularVelocity );
-}
-```
-
-まず1行目、FixedUpdateについてですが、これは一定時間ごとに呼び出す処理です。難しい話は抜きにして、
-「物理演算で動作するオブジェクトに毎フレーム手を加える場合のみ、FixedUpdateから処理を記述する」と覚えておいて下さい。
-
-次に2行目ですが、これはボールの運動エネルギー（X軸・Y軸・Z軸）の合計を1にしています。
-つまり、どんなに強く打っても1以上にはならず、ボールが高速で移動するのを防いでいます。
-
 
 ---
 
